@@ -1,0 +1,97 @@
+
+/**** Font api *****/
+
+@import url(https://fonts.googleapis.com/css?family=Slabo+27px);
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+
+
+/**** Core Styles ***/
+*{
+	box-sizing:border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body{
+	height: 100%;
+	position: relative;
+	width: 100%;	
+	margin-top: -10px;	
+}
+
+.clear-fix{
+	clear: both;
+}
+
+body{	
+	overflow-x: hidden;
+	min-width: 380px;
+	background-color: #DDDDDD;
+	font-family: 'Lato', sans-serif;	
+	position: relative;
+
+}
+
+
+
+
+
+/********** Heading / Logo (Don't Touch) **************/
+h1.logo{	
+	/*font-size: 30px;	*/
+	color:#fff;	
+	text-shadow:2px 2px 12px rgba(0,0,0,0.8);	
+	border-radius: 10px;
+	box-shadow: 3px 3px 10px rgba(10,10,10,0.4);
+	background-color: #394F6A;
+	width: 100%;
+	text-align: center;
+}
+
+	
+
+
+/****** Footer (Don't touch) *************/
+.app-footer{	
+	position: absolute;
+	bottom: 0px;	
+	width: 100%;
+	background-color: rgba(0,00,00,0.2);	
+	letter-spacing: 3px;
+	padding: 10px;
+	padding-left: 45px;
+}
+
+	.app-footer a{
+		color: #C7D2B6;
+		font-family: 'Slabo 27px', serif;
+		text-decoration: none;
+		transition: 2s all ease-in;
+	}
+
+	.app-footer a:hover{
+		color: #E4D777;
+		text-shadow: 4px 2px 13px rgba(0,0,0,0.6);
+	}
+
+/*********** Admin-LTE Modifications **********/
+
+
+/**** Changes in the box Styles *******/
+.box{
+	padding: 5px;
+}
+.box-title,
+.box-footer{
+	width:100%;
+	text-align:center;
+}
+
+
+
+
+
+
+

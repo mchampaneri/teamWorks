@@ -1,17 +1,31 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the Closure to execute when that URI is requested.
-|
-*/
-
-Route::get('/', function()
-{
-	return View::make('hello');
+Route::get('/', function(){
+	return View::make('login');
 });
+
+/* ----------  Security Routiens *****************- */
+
+
+Route::get('/login',function(){
+	return View::make('login');
+});
+Route::get('/logout',['as'=>'logout','uses'=>'usersController@logout']);
+
+
+
+/********** Authenticator **********/
+
+Route::post('/login',['as'=>'authenticate','uses'=>'usersController@authenticator']);
+Route::get('/default','usersController@makeUser');
+
+
+
+/* ----------------- Security for Routes -------------------- */
+
+Route::group(array('before' => 'auth'), function(){
+		Route::resource('tasks','tasksController');
+		Route::resource('projects','projectsController');
+		Route::resource('users','usersController');
+});
+
