@@ -1,9 +1,19 @@
+<?php
+
+/*** Checking The level of The user to Perfect Page Loading *****/	
+	$level = print( Session::get('level') );
+
+?>
+
 <!DOCTYPE html>
-<html  style="height:100%;">
+<html  style="height:100%;" ng-app="teamWorks">
 <head>
 	<title> TeamWorks | Login </title>
 
 	<script src="/resources/jquery/angular.min.js"></script>
+	<script src="/resources/jquery/angular/app.js"></script>
+	
+	
 
 	<link rel="stylesheet" type="text/css" 
 		  href="/resources/css/reset.css">
@@ -38,22 +48,29 @@
 
 		<header>
 			<h1 class="logo">teaMWorks</h1>
+		
+
 		</header>
 
 <div class="container">
 
 	<?php /************  GET THE FUNCTION FOR HR ************/
-			if( $level==1)
+			if( $level==1) // Can Be A Owner, Chairperson or Who makes recuritment
 			include '/partials/hr.php';
 	?>	
 
-	<?php /************  GET THE FUNCTION FOR HR ************/
-			if( $level==2)
+	<?php /************  GET THE FUNCTION FOR head ************/
+			if( $level==2) // Can be A Manager, Project Head, Department Head
+			include '/partials/head.php';
+	?>
+
+	<?php /************  GET THE FUNCTION FOR member ************/
+			if( $level==3) // Can be An company Employee, Project Person etc.
 			include '/partials/member.php';
 	?>
 
-	<?php /************  GET THE FUNCTION FOR HR ************/
-			if( $level==3)
+	<?php /************  GET THE FUNCTION FOR visitor ************/
+			if( $level==4) 
 			include '/partials/visitor.php';
 	?>
 </div>
@@ -63,6 +80,7 @@
 		    <!-- To the right -->
 			    <div class="pull-right">
 			      	For Learning Purpose
+			      	<a href="/logout" class="btn btn-info">LogOut</a>
 			    </div>
 			    <!-- Default to the left -->
 		    	<strong>MANISH CHAMPANERI</strong>
@@ -76,9 +94,8 @@
 	
 <script src="/resources/jquery/bootstrap.min.js"></script>
 
-
-<script src="/resources/jquery/app.min.js"></script>
-
 <script src="/resources/jquery/app-functions.js"></script>
+
+
 </body>
 </html>
