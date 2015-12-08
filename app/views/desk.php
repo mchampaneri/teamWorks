@@ -1,9 +1,3 @@
-<?php
-
-/*** Checking The level of The user to Perfect Page Loading *****/	
-	$level = print( Session::get('level') );
-
-?>
 
 <!DOCTYPE html>
 <html  style="height:100%;" ng-app="teamWorks">
@@ -54,14 +48,18 @@
 
 <div class="container">
 
-	<?php /************  GET THE FUNCTION FOR HR ************/
+	<?php
+
+		$level = Auth::user()->privilage;
+
+		 /************  GET THE FUNCTION FOR HR ************/
 			if( $level==1) // Can Be A Owner, Chairperson or Who makes recuritment
 			include '/partials/hr.php';
 	?>	
 
 	<?php /************  GET THE FUNCTION FOR head ************/
 			if( $level==2) // Can be A Manager, Project Head, Department Head
-			include '/partials/head.php';
+			include '/partials/member.php';
 	?>
 
 	<?php /************  GET THE FUNCTION FOR member ************/
@@ -83,7 +81,7 @@
 			      	<a href="/logout" class="btn btn-info">LogOut</a>
 			    </div>
 			    <!-- Default to the left -->
-		    	<strong>MANISH CHAMPANERI</strong>
+		    	<caption>Login as <?php echo Auth::user()->name; ?></caption>
 		 </footer>
 	
 
