@@ -33,7 +33,7 @@ class userController extends \BaseController {
 	public function store()
 	{
 		/****** Data From Ajax Request *********/
-		$user_name = Input::get('user_name');		
+		$email = Input::get('email');		
 	   	$password = Input::get('password');
 	   	$name = Input::get('name');
 	   	$privilage = Input::get('privilage');
@@ -42,7 +42,7 @@ class userController extends \BaseController {
 	   	$new_user = new User();
 	   	$new_user->name = $name;
 	   	$new_user->privilage = $privilage;
-	   	$new_user->email = $user_name;
+	   	$new_user->email = $email;
 	   	$new_user->password = Hash::make($password);
 
 	   	$new_user->save();
