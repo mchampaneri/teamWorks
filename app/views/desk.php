@@ -46,7 +46,7 @@
 
 		</header>
 
-<div class="container">
+<div class="container-fluid">
 
 	<?php
 
@@ -59,7 +59,7 @@
 
 	<?php /************  GET THE FUNCTION FOR head ************/
 			if( $level==2) // Can be A Manager, Project Head, Department Head
-			include '/partials/member.php';
+			include '/partials/manager.php';
 	?>
 
 	<?php /************  GET THE FUNCTION FOR member ************/

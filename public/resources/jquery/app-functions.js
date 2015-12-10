@@ -4,6 +4,24 @@ $(document).ready(function() {
 	$('input,label').before('<div class="form-group">');
 	$('input[type="text"],input[type="password"],select').addClass('form-control');
 	$('input,label').after('</div>');
-
+	$('.box').hide();
+	// $('.expandable').next('.box-body').slideUp();
 
 });
+
+/****************  UI Contollers **************/
+
+$('.expandable').on('click',function() {
+		$('.box-body').slideUp();
+		$(this).next('.box-body').slideToggle();
+
+	
+});
+
+/***************** functions *****/
+
+function disp(page)
+{
+	$('.box').hide();
+	$(page).show();
+}

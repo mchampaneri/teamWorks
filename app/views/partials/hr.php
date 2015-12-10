@@ -1,10 +1,9 @@
 
 
 
-
-	<div class="content-header" >
-		Hello , HR
-	</div>
+<div class="content-header" >
+Hello , HR
+</div>
 <div class="content" ng-controller="UserController">
 
 	<div class="row">
