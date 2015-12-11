@@ -41,20 +41,27 @@
 
 
 		<header>
-			<h1 class="logo">teaMWorks</h1>
-		
 
+			<div class="row" ng-controller="SettingsController">
+				<h1 class="logo">teaMWorks					
+				     <a  class="btn btn-primary" value="Logout" href="/logout" > LogOut</a>
+				   	 <a  class="btn btn-primary" value="Setting" onclick="disp('#settings')"> Settings </a>			
+				</h1>		
+			 	
+			    <!-- Default to the left -->
+		    
+		    </div>
 		</header>
 
-<div class="container-fluid">
+<div class="container-fluid workspace">
 
 	<?php
 
 		$level = Auth::user()->privilage;
 
 		 /************  GET THE FUNCTION FOR HR ************/
-			if( $level==1) // Can Be A Owner, Chairperson or Who makes recuritment
-			include '/partials/hr.php';
+			if( $level==1) // Use to Crete New User and Manage The application
+			include '/partials/sm.php';
 	?>	
 
 	<?php /************  GET THE FUNCTION FOR head ************/
@@ -67,22 +74,14 @@
 			include '/partials/member.php';
 	?>
 
-	<?php /************  GET THE FUNCTION FOR visitor ************/
+	<?php /************  GET THE FUNCTION FOR EmployeeControlle ************/
 			if( $level==4) 
-			include '/partials/visitor.php';
+			include '/partials/ems.php';
 	?>
 </div>
 	
 			<!-- Main Footer -->
-		 <footer class="app-footer">
-		    <!-- To the right -->
-			    <div class="pull-right">
-			      	For Learning Purpose
-			      	<a href="/logout" class="btn btn-info">LogOut</a>
-			    </div>
-			    <!-- Default to the left -->
-		    	<caption>Login as <?php echo Auth::user()->name; ?></caption>
-		 </footer>
+		
 	
 
 <body >

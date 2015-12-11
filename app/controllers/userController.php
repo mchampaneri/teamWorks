@@ -44,10 +44,9 @@ class userController extends \BaseController {
 	   	$new_user->privilage = $privilage;
 	   	$new_user->email = $email;
 	   	$new_user->password = Hash::make($password);
-
 	   	$new_user->save();
-	   	/***** Ajax Response for console ********/
-	  
+
+	   	/***** Ajax Response for console ********/	  
 		return "user ready to access";
 
 	}

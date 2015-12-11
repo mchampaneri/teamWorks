@@ -4,7 +4,7 @@ $(document).ready(function() {
 	$('input,label').before('<div class="form-group">');
 	$('input[type="text"],input[type="password"],select').addClass('form-control');
 	$('input,label').after('</div>');
-	$('.box').hide();
+	$('.hideable').hide();
 	// $('.expandable').next('.box-body').slideUp();
 
 });

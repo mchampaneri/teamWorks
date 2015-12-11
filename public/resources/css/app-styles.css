@@ -42,12 +42,11 @@ body{
 h1.logo{	
 	/*font-size: 30px;	*/
 	color:#fff;	
-	text-shadow:2px 2px 12px rgba(0,0,0,0.8);	
-	border-radius: 10px;
+	text-shadow:2px 2px 12px rgba(0,0,0,0.8);
 	box-shadow: 3px 3px 10px rgba(10,10,10,0.4);
 	background-color: #394F6A;
-	width: 100%;
-	text-align: center;
+	width: 100%;	
+	padding-left: 30px;	
 }
 
 	
@@ -92,10 +91,13 @@ h1.logo{
 
 /******* APP Spacific Elements*********/
 
-.expandable{
+.clickable{
 	cursor: pointer;
 }
 
+.workspace{
+	
+}
 
 
 

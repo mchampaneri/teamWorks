@@ -56,10 +56,48 @@ app.controller('ProjectController', ['$scope','$http', function ($scope,$http) {
 							client : project.client,
 							description : project.description
 							};
+							$http.post('/projects', newProject)
+									.success(function(data) {
+										console.log(data);
+										$scope.project = [];
+									});													
+						};
 
-						console.log(newProject);		
+
+	$scope.oldProjects = function(){
+						$http.get('/projects').
+								success(function(data) {
+									$scope.projects =data;
+									console.log(data);
+								});
 						
 						};
 
 }]);
     
+/********* SettingS Controller ******************/
+
+app.controller('SettingsController', ['$scope', function ($scope) {
+	$scope.Settings = function(){
+				$http.get('/logout')
+						.success(function(data) {
+							console.log(data);
+							
+						});
+			}
+}])
+
+/********* Member Controller ******************/
+
+app.controller('MemberController', ['$scope','$http', function ($scope,$http) {
+
+	$scope.unfilled = [];
+	
+	var getUnfilled = function(){
+					     $http.get('/members/create')
+						    	.success(function(data){
+							    	console.log(data);
+							    	unfilled = data;
+						    	});							
+				
+}])
