@@ -3,17 +3,22 @@
 </div>
 
 <div class="content" >
-	<div class="row">
-		<div ng-controller="ProjectController">
 	
-			<div class="col-md-2">
-
-					<a  class="form-control btn-info clickable"  onclick="disp('#newProject')"> New Project</a>
-					<a  class="form-control btn-info clickable "  onclick="disp('#currentProject')"> Current </a>			
-					<a  class="form-control btn-info clickable "  onclick="disp('#oldProjects')" ng-click="oldProjects()"> Old Projects </a>			
+		<div ng-controller="ProjectController">
+			<div class="row">
+				<div class="col-md-2">
+						<a  class="form-control btn-info clickable"  onclick="disp('#newProject')"> New Project</a>
+				</div>
+				<div class="col-md-2">		
+						<a  class="form-control btn-info clickable "  onclick="disp('#currentProject')"> Current </a>			
+				</div>
+				<div class="col-md-2">
+						<a  class="form-control btn-info clickable "  onclick="disp('#oldProjects')" ng-click="oldProjects()"> Old Projects </a>			
+				</div>
 			</div>
 
-			<div class="col-sm-9">
+			<div class="row">
+			<div class="col-md-12">
 
 					<!-- 	Current Project Form -->
 				
@@ -113,14 +118,14 @@
 
 		<div>
 			<!-- 	Employee Settings Form -->
-			<div class="col-sm-9">
+			<div class="col-md-12">
 				<div class="box box-primary hideable" id="settings">
 					<div class="box-title clickable" >
 						My Settings
 					</div>
 
 					<div class="box-body">
-						<form name="newProjectForm" novalidate>
+						<form name="Settings" novalidate>
 							
 						</form>
 					</div>

@@ -17,7 +17,7 @@ Route::get('/logout',['as'=>'logout','uses'=>'userController@logout']);
 /********** Authenticator **********/
 
 Route::post('/login',['as'=>'authenticate','uses'=>'userController@authenticator']);
-Route::get('/default','usersController@makeUser');
+Route::get('/default','userController@makeUser');
 
 
 /* ----------------- Security for Routes -------------------- */

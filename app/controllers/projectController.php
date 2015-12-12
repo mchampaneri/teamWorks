@@ -9,7 +9,10 @@ class projectController extends \BaseController {
 	 */
 	public function index()
 	{
-		$projects = Project::all();
+		$id=Auth::user()->id;
+
+		$projects = Project::where('coordinator_id','=',$id)
+							->where('status','=',0)->get();
 
 		return $projects;
 	}

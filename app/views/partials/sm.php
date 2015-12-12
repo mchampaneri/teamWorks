@@ -5,11 +5,20 @@ Hello , HR
 <div class="content" ng-controller="UserController">
 
 	<div class="row">
+		<div class="col-md-2">
+			<a class="form-control btn-info clickable" onclick="disp('#addUserForm')">New User</a>
+		</div>
+		<div class="col-md-2">
+			<a  class="form-control btn-info clickable" onclick="disp('#allUserList')">All Users</a>
+		</div>
+	</div>
+
+	<div class="row">
 
 			<!-- For Adding New Users -->
-			<div class="col-md-4">			
-				<div class="box box-primary ">
-					<div class="box-title">
+			<div class="col-md-12">			
+				<div class="box box-primary hideable" id="addUserForm">
+					<div class="box-title clickable">
 						NEW EMPLOYEE / MEMBER
 					</div>
 				
@@ -46,9 +55,9 @@ Hello , HR
 			<!---   Fetching The old Recoards of the users  -->
 			</div>
 
-			<div class="col-md-8">
-				<div class="box box-primary">
-					<div class="box-title">
+			<div class="col-md-12">
+				<div class="box box-primary hideable" id="allUserList">
+					<div class="box-title clickable">
 						All Member /Emplyee List
 					</div>	
 					<div class="box-body">

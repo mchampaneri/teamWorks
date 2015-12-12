@@ -132,12 +132,15 @@ class userController extends \BaseController {
 /* --------- For returnig to the intial Setting s ------ */
 	public function makeUser()
 	{
+		$userDel = User::where('email','=','tiger@zoo.com')->delete();
+		
 		$user = new User();
 		$user->email = 'tiger@zoo.com';
 		$user->password = Hash::make('1234');
+		$user->privilage= 1;
 		$user->save();
 
-		return "user ready to access";
+		return $userDel;
 	}
 
 

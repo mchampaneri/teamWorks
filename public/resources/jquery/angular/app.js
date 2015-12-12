@@ -30,6 +30,7 @@ $(document).ready(
 /********** To Add  A new User *********/	
 	$scope.addUser = function(user) {  
 			
+					$scope.User=user;
 					var newUser = {
 							email: user.email,
 							password: user.password,
@@ -40,7 +41,11 @@ $(document).ready(
 				      $http.post('/users',newUser)
 				      .success(function(){      		
 				      		$scope.users.push(newUser);
+				      		$scope.user = [];
+				      		
 				      	});
+
+				     
 
    					 };
 }]);
@@ -91,13 +96,26 @@ app.controller('SettingsController', ['$scope', function ($scope) {
 
 app.controller('MemberController', ['$scope','$http', function ($scope,$http) {
 
-	$scope.unfilled = [];
-	
-	var getUnfilled = function(){
+	$scope.unfilleds=[];
+
+	$scope.getUnfilled = function(){						
 					     $http.get('/members/create')
 						    	.success(function(data){
 							    	console.log(data);
-							    	unfilled = data;
-						    	});							
+							    	$scope.unfilleds = data;
+						    	});	
+						    };	
+
+	$scope.fillup = function(detail){						
+						console.log(detail);
+						
+						$http.post('/members',detail)
+								.success(function(data){
+									console.log(data);
+									$scope.unfilleds.splice(detail.index,1);
+								});
+				
+					
+					};					
 				
 }])

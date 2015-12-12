@@ -9,7 +9,9 @@ class memberController extends \BaseController {
 	 */
 	public function index()
 	{
-		return "This is Unfilled";
+		$members = Member::all();
+
+		return $members;
 	}
 
 
@@ -20,11 +22,11 @@ class memberController extends \BaseController {
 	 */
 	public function create()
 	{
-		$user_ids = User::where('member_id','=',0)
-						->select('id')
+		$users = User::where('member_id','=',0)
+						->select('id','email','name')
 						->get();
 		
-		return $user_ids;
+		return $users;
 	}
 
 
@@ -35,7 +37,21 @@ class memberController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$input = Input::all();
+		
+		$member = new Member();
+		$member->user_id = $input['id'];
+		$member->field = $input['field'];
+		$member->skills = $input['skills'];
+		$member->contact_number = $input['contact_number'];
+		$member->address = $input['address'];		 
+		$member->save();
+
+		$user = User::find($input['id']);
+		$user->member_id = $member->id;
+		$user->save();
+
+		return "Member Data Initalized Succesfully";
 	}
 
 
