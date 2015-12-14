@@ -144,6 +144,16 @@ class userController extends \BaseController {
 	}
 
 
+	public function available()
+	{
+		$level = Input::get('level');
+		$availabe_users = User::where('status','=',0)
+								->where('privilage','=',$level)
+								->select('id','name')->get();
+
+		return $availabe_users;
+		
+	}
 
 
 }

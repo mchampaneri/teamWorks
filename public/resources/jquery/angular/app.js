@@ -55,6 +55,21 @@ $(document).ready(
 
 app.controller('ProjectController', ['$scope','$http', function ($scope,$http) {	
 
+	
+	$scope.currentProject = function(){
+								$http.get('/projects/current')
+										.success(function(project){
+												$scope.current = project;
+												console.log(project);
+										});
+								var query= {level:'3'};
+								$http.post('/users/available',query)
+										.success(function(avail_members){
+												$scope.available_members = avail_members;																						
+												console.log($scope.available_members);
+										});
+							};
+
 	$scope.addProject = function(project){
 						var newProject = {	
 							project_name : project.project_name,
@@ -77,6 +92,17 @@ app.controller('ProjectController', ['$scope','$http', function ($scope,$http) {
 								});
 						
 						};
+
+	$scope.recruite = function(uid,pid){
+						var query = { user_id : uid ,
+									  project_id : pid}
+						$http.post('/projects/recruite', query)
+								.success(function(data){
+									console.log(data);
+									$scope.unfilleds.splice(detail.index,1);
+								});
+						}
+
 
 }]);
     

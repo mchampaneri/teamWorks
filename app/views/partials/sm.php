@@ -5,6 +5,7 @@ Hello , HR
 <div class="content" ng-controller="UserController">
 
 	<div class="row">
+		
 		<div class="col-md-2">
 			<a class="form-control btn-info clickable" onclick="disp('#addUserForm')">New User</a>
 		</div>
